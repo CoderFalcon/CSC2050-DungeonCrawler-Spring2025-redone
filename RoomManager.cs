@@ -9,7 +9,7 @@ public class RoomManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Core.thePlayer = new Player("Mike");
+        Core.thePlayer = new Player("Caleb");
         this.theDungeon = new Dungeon();
         this.setupRoom();
     }
