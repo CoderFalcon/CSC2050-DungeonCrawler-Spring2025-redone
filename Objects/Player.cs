@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Player
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private string name;
+    private Room currentRoom;
+
+    public Player(string name)
     {
-        
+        this.name = name;
+        this.currentRoom = null;
     }
 
-    // Update is called once per frame
-    void Update()
+    public Room getCurrentRoom()
     {
-        
+        return this.currentRoom;
     }
+    
+    public void setCurrentRoom(Room r)
+    {
+        this.currentRoom = r;
+    }
+    
 }
