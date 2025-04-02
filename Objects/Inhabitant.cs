@@ -12,44 +12,35 @@ public abstract class Inhabitant
         this.name = name;
         this.maxHp = Random.Range(30, 50);
         this.currHp = this.maxHp;
-        this.ac = Random.Range(10, 20);
+        this.ac = Random.Range(5, 12);
     }
 
     public string getName()
     {
-        return name;
-    }
+        return this.name;
+    }   
 
-    public int getCurrHP()
+    public int getCurrHp()
     {
-        return currHp;
+        return this.currHp;
     }
 
+    public int getMaxHp()
+    {
+        return this.maxHp;
+    }
+    
+    public bool isDead()
+    {
+        return this.currHp <= 0;
+    }
+
+    public void takeDamage(int damage)
+    {
+        this.currHp -= damage;
+    }
     public int getAC()
     {
         return this.ac;
-    }
-
-    public void takeDamage(int dmg)
-    {
-        currHp -= dmg;
-        if (currHp < 0) currHp = 0;
-        Debug.Log(name + " takes " + dmg + " damage. Current HP: " + currHp);
-    }
-
-    public virtual void attack(Inhabitant target)
-    {
-        int roll = Random.Range(1, 20);
-        int damage = Random.Range(5, 15);
-
-        if (roll + ac >= target.ac)
-        {
-            Debug.Log(name + " hits " + target.getName() + " for " + damage + " damage");
-            target.takeDamage(damage);
-        }
-        else
-        {
-            Debug.Log(name + " misses the attack");
-        }
     }
 }
